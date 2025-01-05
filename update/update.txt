@@ -1,0 +1,16 @@
+use autopujcovna;
+
+update vypujceni
+set dat_prid = '2024-03-3',
+dat_vrac = '2024-03-8'
+where id_vyp = '1';
+
+update vypujceni
+set dat_prid = '2024-08-20',
+dat_vrac = '2024-09-2'
+where id_vyp = '4';
+
+update vypujceni
+set dat_prid = '2024-10-6',
+dat_vrac = '2024-11-2'
+where id_vyp = '3';
