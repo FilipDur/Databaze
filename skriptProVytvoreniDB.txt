@@ -1,0 +1,58 @@
+use autopujcovna;
+
+create table model (
+id_mo int identity(1,1) primary key,
+zn_mo nvarchar(40) not null,
+naz_mo nvarchar(40) not null,
+rok_vyr_mo date not null,
+vyk_mot_mo nvarchar(20) not null,
+pal_mo nvarchar(20) not null,
+poc_mi_mo tinyint not null,
+sp_mo decimal(4,1) not null
+
+check(LEN(zn_mo) >=1),
+check(LEN(naz_mo) >=2),
+check(rok_vyr_mo >= '1886' and rok_vyr_mo <= getdate()),
+check(LEN(pal_mo) >= 3),
+check(poc_mi_mo >= 2),
+);
+
+create table automobily(
+id_au int identity(1,1) primary key,
+id_mo int not null,
+spz_au char(7) not null,
+vin_au char(17) not null,
+
+foreign key (id_mo) references model(id_mo),
+
+unique (spz_au),
+unique (vin_au)
+);
+
+create table uzivatele(
+id_uziv int identity(1,1) primary key,
+jm_uziv nvarchar(40) not null,
+prijm_uziv nvarchar(40) not null,
+tel_uziv varchar(14) not null,
+rod_cis_uziv char(11) not null
+
+check (LEN(jm_uziv) >= 3),
+check (LEN(prijm_uziv) >= 3),
+check (LEN(tel_uziv) > 1 and LEN(tel_uziv) <=14),
+
+unique (rod_cis_uziv)
+);
+
+create table vypujceni(
+id_vyp int identity(1,1) primary key,
+dat_prid date not null,
+dat_vrac date not null,
+id_uziv int not null,
+id_au int not null,
+
+foreign key (id_uziv) references uzivatele(id_uziv),
+foreign key (id_au) references automobily(id_au),
+
+check (dat_prid <= getdate()),
+check (dat_vrac >= dat_prid)
+);
