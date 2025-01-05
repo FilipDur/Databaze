@@ -1,0 +1,33 @@
+use autopujcovna;
+
+insert into uzivatele(jm_uziv, prijm_uziv, tel_uziv, rod_cis_uziv)
+values
+('Jan', 'Novák', '123456789', '8501011234'),
+('Petra', 'Svobodová', '987654321', '9205055678'),
+('Tomáš', 'Kovář', '603112233', '7404039876'),
+('Lucie', 'Horáková', '724556677', '8810101122'),
+('Martin', 'Dvořák', '602334455', '6502014567');
+
+insert into model(zn_mo,naz_mo,rok_vyr_mo,vyk_mot_mo,pal_mo,poc_mi_mo,sp_mo)
+values
+('Škoda', 'Octavia', '2019-01-01', '110 kW', 'benzín', 5, 5.2),
+('Volkswagen', 'Passat', '2020-05-15', '140 kW', 'nafta', 5, 4.8),
+('Toyota', 'Corolla', '2018-09-10', '90 kW', 'hybrid', 5, 4.2),
+('Tesla', 'Model 3', '2021-06-20', '225 kW', 'elektrický', 5, 0.0),
+('Ford', 'Focus', '2017-11-05', '92 kW', 'benzín', 5, 5.5);
+
+insert into automobily(id_mo, spz_au,vin_au)
+values
+(1, '1AB1234', '1HGCM82633A123456'),
+(2, '2CD5678', 'JHMFA16507S012345'),
+(3, '3EF9012', 'WVWZZZ1KZ5W012345'),
+(4, '4GH3456', '5YJ3E1EA7LF678910'),
+(5, '5IJ7890', '1FAHP3FN9AW123456');
+
+insert into vypujceni(dat_prid, dat_vrac, id_uziv, id_au)
+values
+('2024-01-01', '2024-01-10', 1, 2),
+('2024-01-15', '2024-01-20', 2, 3),
+('2024-01-05', '2024-01-12', 3, 5),
+('2024-01-10', '2024-01-25', 4, 4),
+('2024-01-02', '2024-01-08', 5, 1);
